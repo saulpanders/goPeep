@@ -4,6 +4,9 @@
 
 	inspired by bhg,
 
+	TODO:
+		add DLL support
+		add shellcode section append
 
 	PE FILE FORMAT
 	-------------------------
@@ -136,6 +139,7 @@ func main() {
 	var oh64 pe.OptionalHeader64
 
 	//Read + parse OptionalHeader, DataDirectories
+	//still kind of wack with the code duplication....
 	switch pefile.FileHeader.SizeOfOptionalHeader {
 	case sizeofOptionalHeader32:
 		binary.Read(sr, binary.LittleEndian, &oh32)
